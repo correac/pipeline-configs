@@ -663,6 +663,46 @@ def register_star_Mg_and_O_to_Fe(self, catalogue, aperture_sizes):
 
     return
 
+def register_nitrogen_to_oxygen(self, catalogue, aperture_sizes):
+    # Loop over aperture average-of-linear O-abundances
+    for aperture_size in aperture_sizes:
+
+        # register average-of-log O-abundances (high and low particle floors)
+        for floor, floor_label in zip(
+            ["low"], ["Min = $10^{{-4}}$"]
+        ):
+            # Fetch N over O times gas mass computed in apertures.
+            log_N_over_O_times_gas_mass = getattr(
+                catalogue.log_element_ratios_times_masses,
+                f"log_N_over_O_times_gas_mass_{floor}floor_{aperture_size}_kpc",
+            )
+
+            # Fetch gas mass in apertures
+            gas_cold_dense_mass = getattr(
+                catalogue.cold_dense_gas_properties,
+                f"cold_dense_gas_mass_{aperture_size}_kpc",
+            )
+
+            # Compute gas-mass weighted O over H
+            log_N_over_O = unyt.unyt_array(
+                np.zeros_like(gas_cold_dense_mass), "dimensionless"
+            )
+            # Avoid division by zero
+            mask = gas_cold_dense_mass > 0.0 * gas_cold_dense_mass.units
+            log_N_over_O[mask] = (
+                log_N_over_O_times_gas_mass[mask] / gas_cold_dense_mass[mask]
+            )
+
+            # Convert to units used in observations
+            N_abundance = unyt.unyt_array(log_N_over_O, "dimensionless")
+            N_abundance.name = f"SF Gas Diffuse $\\log_{{10}}({{\\rm N/O}})$ ({floor_label}, {aperture_size} kpc)"
+
+            # Register the field
+            setattr(
+                self, f"gas_n_over_o_abundance_avglog_{floor}_{aperture_size}_kpc", N_abundance
+            )
+
+    return
 
 def register_oxygen_to_hydrogen(self, catalogue, aperture_sizes):
     # Loop over aperture average-of-linear O-abundances
@@ -1377,6 +1417,7 @@ register_star_metallicities(
 )
 register_stellar_to_halo_mass_ratios(self, catalogue, aperture_sizes_30_50_100_kpc)
 register_oxygen_to_hydrogen(self, catalogue, aperture_sizes_30_50_100_kpc)
+register_nitrogen_to_oxygen(self, catalogue, aperture_sizes_30_50_100_kpc)
 register_cold_dense_gas_metallicity(
     self,
     catalogue,
