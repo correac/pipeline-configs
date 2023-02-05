@@ -512,6 +512,41 @@ stellar_mass_gas_nitrogen_over_oxygen_lom_allgals_30:
     show_on_webpage: true
   observational_data:
 
+gas_metallicity_gas_nitrogen_over_oxygen_lom_allgals_30:
+  type: "scatter"
+  legend_loc: "upper left"
+  selection_mask: "derived_quantities.has_cold_dense_gas_30_kpc"
+  comment: "All galaxies, LoM, Diffuse, from O"
+  y:
+    quantity: "derived_quantities.log_N_over_O_times_gas_mass_lowfloor_30_kpc"
+    log: false
+    units: "dimensionless"
+    start: -2
+    end: 1
+  x:
+    quantity: "derived_quantities.gas_o_abundance_avglog_low_50_kpc"
+    log: false
+    units: "dimensionless"
+    start: 7
+    end: 10
+  median:
+    plot: true
+    log: true
+    adaptive: true
+    number_of_bins: 30
+    start:
+      value: 7
+      units: "dimensionless"
+    end:
+      value: 10
+      units: "dimensionless"
+  metadata:
+    title: "Gas metallicity - Gas Nitrogen over Oxygen relation (mean-of-log, 30 kpc aperture)"
+    caption: Only shown for galaxies with cold, dense gas. It shows $\log_{10}$ N/O of the cold, dense gas ($T < 10^{4.5}\;{\rm K}$,  $n_{\rm H} > 0.1 \; {\rm cm^{-3}}$). No minimum metallicity is imposed. All haloes are plotted, including subhaloes. This uses depleted gas metallicity, i.e. it does not include metals that are present in dust.
+    section: Gas Metallicity
+    show_on_webpage: true
+  observational_data:
+
 stellar_mass_star_metallicity_50:
   type: "scatter"
   legend_loc: "upper left"
