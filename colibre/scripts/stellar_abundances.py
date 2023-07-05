@@ -53,6 +53,7 @@ def read_data(data, xvar, yvar):
     N_Fe_Sun = N_H_Sun_Asplund - Fe_H_Sun_Asplund - np.log10(mFe_in_cgs / mN_in_cgs)
     O_Fe_Sun = O_H_Sun_Asplund - Fe_H_Sun_Asplund - np.log10(mFe_in_cgs / mO_in_cgs)
     Mg_Fe_Sun = Mg_H_Sun_Asplund - Fe_H_Sun_Asplund - np.log10(mFe_in_cgs / mMg_in_cgs)
+    O_Mg_Sun = O_Fe_Sun - Mg_Fe_Sun
 
     Si_Fe_Sun = Si_H_Sun_Asplund - Fe_H_Sun_Asplund - np.log10(mFe_in_cgs / mSi_in_cgs)
     Eu_Fe_Sun = Eu_H_Sun_Asplund - Fe_H_Sun_Asplund - np.log10(mFe_in_cgs / mEu_in_cgs)
@@ -63,14 +64,14 @@ def read_data(data, xvar, yvar):
     hydrogen = data.stars.element_mass_fractions.hydrogen
     iron = data.stars.element_mass_fractions.iron
 
-    if xvar == "O_H" or yvar == "O_Fe":
+    if xvar == "O_H" or yvar == "O_Fe" or yvar == "O_Mg":
         oxygen = data.stars.element_mass_fractions.oxygen
 
     if yvar == "C_Fe":
         carbon = data.stars.element_mass_fractions.carbon
     if yvar == "N_Fe":
         nitrogen = data.stars.element_mass_fractions.nitrogen
-    if yvar == "Mg_Fe":
+    if yvar == "Mg_Fe" or yvar == "O_Mg":
         magnesium = data.stars.element_mass_fractions.magnesium
     if yvar == "Fe_SNIa_fraction":
         iron_snia = data.stars.iron_mass_fractions_from_snia
@@ -158,6 +159,12 @@ def read_data(data, xvar, yvar):
         mask = iron > 0.0
         Fe_snia_fraction[mask] = iron_snia[mask] / iron[mask]
         yval = Fe_snia_fraction
+    elif yvar == "O_Mg":
+        O_Mg = np.log10(oxygen / magnesium) - O_Mg_Sun
+        O_Mg[oxygen == 0] = -2  # set lower limit
+        O_Mg[magnesium == 0] = -2  # set lower limit
+        O_Mg[O_Mg < -2] = -2  # set lower limit
+        yval = O_Mg
     else:
         raise AttributeError(f"Unknown y variable: {yvar}!")
 
@@ -250,6 +257,10 @@ if dataset == "APOGEE":
         elif yvar == "Mg_Fe":
             observational_data = (
                 f"{path_to_obs_data}/data/StellarAbundances/APOGEE_data_MG.hdf5"
+            )
+        elif yvar == "O_Mg":
+            observational_data = (
+                f"{path_to_obs_data}/data/StellarAbundances/APOGEE_data_OMG.hdf5"
             )
         else:
             raise AttributeError(f"No APOGEE dataset for y variable {yvar}!")
@@ -373,6 +384,7 @@ ylabels = {
     "Ba_Fe": "[Ba/Fe]",
     "Eu_Fe": "[Eu/Fe]",
     "Fe_SNIa_fraction": "Fe (SNIa) / Fe (Total)",
+    "O_Mg": "[O/Mg]",
 }
 ax.set_xlabel(xlabels[xvar])
 ax.set_ylabel(ylabels[yvar])
@@ -389,6 +401,7 @@ ylims = {
     "Eu_Fe": (-1.5, 2.0),
     "Ne_Fe": (-1.5, 2.0),
     "Fe_SNIa_fraction": (3.0e-3, 3.0),
+    "O_Mg": (-1.5, 2.0),
 }
 ax.set_ylim(*ylims[yvar])
 if yvar == "Fe_SNIa_fraction":
