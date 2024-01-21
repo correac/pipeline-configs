@@ -1756,33 +1756,33 @@ register_star_metallicities(
 )
 register_stellar_to_halo_mass_ratios(self, catalogue, aperture_sizes_30_50_100_kpc)
 register_projected_stellar_masses(self, catalogue, aperture_sizes_10_30_50_100_kpc)
-register_oxygen_to_hydrogen(self, catalogue, aperture_sizes_30_50_100_kpc)
-register_nitrogen_to_oxygen(self, catalogue, aperture_sizes_30_50_100_kpc)
-register_carbon_to_oxygen(self, catalogue, aperture_sizes_30_50_100_kpc)
-register_cold_dense_gas_metallicity(
-    self,
-    catalogue,
-    aperture_sizes_30_50_100_kpc,
-    solar_metal_mass_fraction,
-    twelve_plus_log_OH_solar,
-)
+# register_oxygen_to_hydrogen(self, catalogue, aperture_sizes_30_50_100_kpc)
+# register_nitrogen_to_oxygen(self, catalogue, aperture_sizes_30_50_100_kpc)
+# register_carbon_to_oxygen(self, catalogue, aperture_sizes_30_50_100_kpc)
+# register_cold_dense_gas_metallicity(
+#     self,
+#     catalogue,
+#     aperture_sizes_30_50_100_kpc,
+#     solar_metal_mass_fraction,
+#     twelve_plus_log_OH_solar,
+# )
 register_iron_to_hydrogen(
     self, catalogue, aperture_sizes_30_50_100_kpc, solar_fe_abundance
 )
 register_hi_masses(self, catalogue, aperture_sizes_30_50_100_kpc)
 register_h2_masses(self, catalogue, aperture_sizes_30_50_100_kpc)
-register_dust_to_hi_ratio(self, catalogue, aperture_sizes_30_50_100_kpc)
+# register_dust_to_hi_ratio(self, catalogue, aperture_sizes_30_50_100_kpc)
 register_cold_gas_mass_ratios(self, catalogue, aperture_sizes_30_50_100_kpc)
-register_species_fractions(self, catalogue, aperture_sizes_30_50_100_kpc)
+# register_species_fractions(self, catalogue, aperture_sizes_30_50_100_kpc)
 register_los_star_veldisp(self, catalogue)
 register_star_Mg_and_O_to_Fe(self, catalogue, aperture_sizes_30_50_100_kpc)
 register_gas_fraction(self, catalogue)
 register_stellar_mass_scatter(self, catalogue, stellar_mass_scatter_amplitude)
-register_dust(
-    self,
-    catalogue,
-    aperture_sizes_30_50_100_kpc,
-    solar_metal_mass_fraction,
-    twelve_plus_log_OH_solar,
-)
+# register_dust(
+#     self,
+#     catalogue,
+#     aperture_sizes_30_50_100_kpc,
+#     solar_metal_mass_fraction,
+#     twelve_plus_log_OH_solar,
+# )
 register_star_magnitudes(self, catalogue, aperture_sizes_30_50_100_kpc)

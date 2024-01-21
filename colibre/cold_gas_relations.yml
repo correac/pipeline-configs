@@ -461,71 +461,71 @@ stellar_mass_H2_to_sf_fraction_50:
     caption: Only active galaxies are included in the median line. Fraction is H$_2$ gas mass over SF gas in a 50 kpc aperture.
     section: Cold Gas Fractions (Stellar Mass)
 
-sfr_neutral_to_stellar_mass_50_kpc_50:
-  type: "scatter"
-  legend_loc: "upper left"
-  selection_mask: "derived_quantities.is_active_50_kpc"
-  x:
-    quantity: "derived_quantities.specific_sfr_gas_50_kpc"
-    units: 1 / gigayear
-    start: 1e-3
-    end: 10
-  y:
-    quantity: "derived_quantities.neutral_to_stellar_mass_50_kpc"
-    units: "dimensionless"
-    start: 1e-4
-    end: 10
-  median:
-    plot: true
-    log: true
-    adaptive: true
-    number_of_bins: 20
-    start:
-      value: 1e-3
-      units: 1 / gigayear
-    end:
-      value: 10
-      units: 1 / gigayear
-    lower:
-      value: 1.e-10
-      units: "dimensionless"
-  metadata:
-    title: sSFR-Neutral Gas to SF Gas Fraction (50 kpc aperture)
-    caption: Only active galaxies are included in the median line. Fraction is HI + H$_2$ mass over stellar mass in a 50 kpc aperture.
-    section: Cold Gas Fractions (sSFR)
+#sfr_neutral_to_stellar_mass_50_kpc_50:
+#  type: "scatter"
+#  legend_loc: "upper left"
+#  selection_mask: "derived_quantities.is_active_50_kpc"
+#  x:
+#    quantity: "derived_quantities.specific_sfr_gas_50_kpc"
+#    units: 1 / gigayear
+#    start: 1e-3
+#    end: 10
+#  y:
+#    quantity: "derived_quantities.neutral_to_stellar_mass_50_kpc"
+#    units: "dimensionless"
+#    start: 1e-4
+#    end: 10
+#  median:
+#    plot: true
+#    log: true
+#    adaptive: true
+#    number_of_bins: 20
+#    start:
+#      value: 1e-3
+#      units: 1 / gigayear
+#    end:
+#      value: 10
+#      units: 1 / gigayear
+#    lower:
+#      value: 1.e-10
+#      units: "dimensionless"
+#  metadata:
+#    title: sSFR-Neutral Gas to SF Gas Fraction (50 kpc aperture)
+#    caption: Only active galaxies are included in the median line. Fraction is HI + H$_2$ mass over stellar mass in a 50 kpc aperture.
+#    section: Cold Gas Fractions (sSFR)
 
-sfr_hi_to_stellar_mass_50_kpc_50:
-  type: "scatter"
-  legend_loc: "upper left"
-  selection_mask: "derived_quantities.is_active_50_kpc"
-  x:
-    quantity: "derived_quantities.specific_sfr_gas_50_kpc"
-    units: 1 / gigayear
-    start: 1e-3
-    end: 10
-  y:
-    quantity: "derived_quantities.hi_to_stellar_mass_50_kpc"
-    units: "dimensionless"
-    start: 1e-4
-    end: 10
-  median:
-    plot: true
-    log: true
-    adaptive: true
-    number_of_bins: 20
-    start:
-      value: 1e-3
-      units: 1 / gigayear
-    end:
-      value: 10
-      units: 1 / gigayear
-    lower:
-      value: 1.e-10
-      units: "dimensionless"
-  metadata:
-    title: sSFR-HI Gas to SF Gas Fraction (50 kpc aperture)
-    caption: Only active galaxies are included in the median line. Fraction is HI mass over stellar mass in a 50 kpc aperture.
-    section: Cold Gas Fractions (sSFR)
+#sfr_hi_to_stellar_mass_50_kpc_50:
+#  type: "scatter"
+#  legend_loc: "upper left"
+#  selection_mask: "derived_quantities.is_active_50_kpc"
+#  x:
+#    quantity: "derived_quantities.specific_sfr_gas_50_kpc"
+#    units: 1 / gigayear
+#    start: 1e-3
+#    end: 10
+#  y:
+#    quantity: "derived_quantities.hi_to_stellar_mass_50_kpc"
+#    units: "dimensionless"
+#    start: 1e-4
+#    end: 10
+#  median:
+#    plot: true
+#    log: true
+#    adaptive: true
+#    number_of_bins: 20
+#    start:
+#      value: 1e-3
+#      units: 1 / gigayear
+#    end:
+#      value: 10
+#      units: 1 / gigayear
+#    lower:
+#      value: 1.e-10
+#      units: "dimensionless"
+#  metadata:
+#    title: sSFR-HI Gas to SF Gas Fraction (50 kpc aperture)
+#    caption: Only active galaxies are included in the median line. Fraction is HI mass over stellar mass in a 50 kpc aperture.
+#    section: Cold Gas Fractions (sSFR)
 
 sfr_h2_to_stellar_mass_50_kpc_50:
   type: "scatter"

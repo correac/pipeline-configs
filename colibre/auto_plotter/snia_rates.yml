@@ -212,75 +212,75 @@ stellar_mass_snia_rates_per_stellar_mass_passive_only_50:
     - filename: GalaxyStellarMassSNIaRatePerStellarMass/Graur2015_passive.hdf5
     - filename: GalaxyStellarMassSNIaRatePerStellarMass/Graur2017_passive.hdf5
 
-gas_metallicity_snia_rates_per_stellar_mass_active_only_50:
-  comment: "$M_\\star > 10^{10}$ $M_\\odot$ and active only"
-  comment_loc: "lower left"
-  type: "scatter"
-  legend_loc: "upper left"
-  selection_mask: "derived_quantities.stellar_mass_is_bigger_than_1e10_msun_active_50_kpc"
-  x:
-    quantity: "derived_quantities.gas_o_abundance_fromz_avglin_50_kpc"
-    units: dimensionless 
-    log: false
-    start: 8.4 
-    end: 9.4 
-  y:
-    quantity: "derived_quantities.snia_rate_per_stellar_mass_50_kpc"
-    units: "1/year/Solar_Mass"
-    start: 1e-14
-    end: 3e-12
-  mean:
-    plot: true
-    log: true
-    adaptive: true
-    number_of_bins: 15
-    start:
-      value: 8.2 
-      units: dimensionless
-    end:
-      value: 9.5 
-      units: dimensionless 
-  metadata:
-    title: Gas metallicity-SNIa rate per stellar mass relation (active only, 50 kpc aperture)
-    caption: Uses a 50 kpc 3D aperture, active galaxies only with a stellar mass above 1e10 Msun.
-    section: SNIa Rate
-  observational_data:
-    - filename: GalaxyGasMetallicitySNIaRatePerStellarMass/Graur2017.hdf5
-
-gas_metallicity_snia_rates_per_stellar_mass_active_only_50_Mstar5e10:
-  comment: "$M_\\star > 5 \\times 10^{10}$ $M_\\odot$ and active only"
-  comment_loc: "lower left"
-  type: "scatter"
-  legend_loc: "upper left"
-  selection_mask: "derived_quantities.stellar_mass_is_bigger_than_5e10_msun_active_50_kpc"
-  x:
-    quantity: "derived_quantities.gas_o_abundance_fromz_avglin_50_kpc"
-    units: dimensionless 
-    log: false
-    start: 8.4 
-    end: 9.4 
-  y:
-    quantity: "derived_quantities.snia_rate_per_stellar_mass_50_kpc"
-    units: "1/year/Solar_Mass"
-    start: 1e-14
-    end: 3e-12
-  mean:
-    plot: true
-    log: true
-    adaptive: true
-    number_of_bins: 15
-    start:
-      value: 8.2 
-      units: dimensionless
-    end:
-      value: 9.5 
-      units: dimensionless 
-  metadata:
-    title: Gas metallicity-SNIa rate per stellar mass relation (active only, 50 kpc aperture)
-    caption: Uses a 50 kpc 3D aperture, active galaxies only with a stellar mass above 5e10 Msun.
-    section: SNIa Rate
-  observational_data:
-    - filename: GalaxyGasMetallicitySNIaRatePerStellarMass/Graur2017.hdf5
+#gas_metallicity_snia_rates_per_stellar_mass_active_only_50:
+#  comment: "$M_\\star > 10^{10}$ $M_\\odot$ and active only"
+#  comment_loc: "lower left"
+#  type: "scatter"
+#  legend_loc: "upper left"
+#  selection_mask: "derived_quantities.stellar_mass_is_bigger_than_1e10_msun_active_50_kpc"
+#  x:
+#    quantity: "derived_quantities.gas_o_abundance_fromz_avglin_50_kpc"
+#    units: dimensionless
+#    log: false
+#    start: 8.4
+#    end: 9.4
+#  y:
+#    quantity: "derived_quantities.snia_rate_per_stellar_mass_50_kpc"
+#    units: "1/year/Solar_Mass"
+#    start: 1e-14
+#    end: 3e-12
+#  mean:
+#    plot: true
+#    log: true
+#    adaptive: true
+#    number_of_bins: 15
+#    start:
+#      value: 8.2
+#      units: dimensionless
+#    end:
+#      value: 9.5
+#      units: dimensionless
+#  metadata:
+#    title: Gas metallicity-SNIa rate per stellar mass relation (active only, 50 kpc aperture)
+#    caption: Uses a 50 kpc 3D aperture, active galaxies only with a stellar mass above 1e10 Msun.
+#    section: SNIa Rate
+#  observational_data:
+#    - filename: GalaxyGasMetallicitySNIaRatePerStellarMass/Graur2017.hdf5
+#
+#gas_metallicity_snia_rates_per_stellar_mass_active_only_50_Mstar5e10:
+#  comment: "$M_\\star > 5 \\times 10^{10}$ $M_\\odot$ and active only"
+#  comment_loc: "lower left"
+#  type: "scatter"
+#  legend_loc: "upper left"
+#  selection_mask: "derived_quantities.stellar_mass_is_bigger_than_5e10_msun_active_50_kpc"
+#  x:
+#    quantity: "derived_quantities.gas_o_abundance_fromz_avglin_50_kpc"
+#    units: dimensionless
+#    log: false
+#    start: 8.4
+#    end: 9.4
+#  y:
+#    quantity: "derived_quantities.snia_rate_per_stellar_mass_50_kpc"
+#    units: "1/year/Solar_Mass"
+#    start: 1e-14
+#    end: 3e-12
+#  mean:
+#    plot: true
+#    log: true
+#    adaptive: true
+#    number_of_bins: 15
+#    start:
+#      value: 8.2
+#      units: dimensionless
+#    end:
+#      value: 9.5
+#      units: dimensionless
+#  metadata:
+#    title: Gas metallicity-SNIa rate per stellar mass relation (active only, 50 kpc aperture)
+#    caption: Uses a 50 kpc 3D aperture, active galaxies only with a stellar mass above 5e10 Msun.
+#    section: SNIa Rate
+#  observational_data:
+#    - filename: GalaxyGasMetallicitySNIaRatePerStellarMass/Graur2017.hdf5
 
 star_formation_rates_snia_rates_per_stellar_mass_50:
   comment: "$M_\\star > 10^{10}$ $M_\\odot$"
